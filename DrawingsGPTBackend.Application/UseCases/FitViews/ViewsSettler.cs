@@ -62,17 +62,17 @@ public class ViewsSettler
 
     private (Point2Dbody basePosition, Point2Dbody rightSidePosition, Point2Dbody downSidePosition) GetCoordinates(double baseWidth, double baseHeight, double rightSideWidth, double downSideHeight, int sheetWidth, int sheetHeight)
     {
-        sheetWidth -= 10;//коррекция на рамку для ровных зазоров
-        sheetHeight -= 10;
+        sheetWidth -= 25;//коррекция на рамку для ровных зазоров
+        sheetHeight -= 60;
         double widthGap = (sheetWidth - baseWidth - rightSideWidth) / 3;
-        double baseX = 10 + widthGap + baseWidth / 2;
+        double baseX = 20 + widthGap + baseWidth / 2;
         double downSideX = baseX;
-        double rightSideX = 10 + widthGap * 2 + baseWidth + rightSideWidth / 2;
+        double rightSideX = 20 + widthGap * 2 + baseWidth + rightSideWidth / 2;
 
         double heightGap = (sheetHeight - baseHeight - downSideHeight) / 3;
-        double baseY = sheetHeight - 10 - heightGap - baseHeight / 2;
+        double baseY = sheetHeight + 55 - heightGap - baseHeight / 2;
         double rightSideY = baseY;
-        double downSideY = sheetHeight - 10 - heightGap * 2 - baseHeight - downSideHeight / 2;
+        double downSideY = sheetHeight + 55  - heightGap * 2 - baseHeight - downSideHeight / 2;
 
         Point2Dbody centerPosition = new() { X = baseX, Y = baseY };
         Point2Dbody righSidePosition = new() { X = rightSideX, Y = rightSideY };

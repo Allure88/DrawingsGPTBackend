@@ -1,5 +1,4 @@
 ﻿#nullable enable
-using DrawingsGPTBackend.Domain;
 using DrawingsGPTBackend.Domain.Bodies;
 
 namespace DrawingsGPTBackend.Application.UseCases.FitViews
@@ -7,7 +6,7 @@ namespace DrawingsGPTBackend.Application.UseCases.FitViews
 
     public class ViewsInteractor(OrientationHandler orientationHandler, ScaleFormatHandler scaleHandler, ViewsSettler viewsSettler)
     {
-        public (List<BaseViewBody>baseviews,List<ProjectViewBody>projectViews, Format format) FitViews(BoundingBoxBody BoundingBox, DrawingsOptionsBody DrawingsOptions, bool IsAssembly)
+        public ViewsResponce FitViews(BoundingBoxBody BoundingBox, DrawingsOptionsBody DrawingsOptions, bool IsAssembly)
         {
 
             double lengthModel = Math.Abs(BoundingBox.RightUp.X - BoundingBox.LeftBottom.X);
@@ -18,9 +17,9 @@ namespace DrawingsGPTBackend.Application.UseCases.FitViews
 
             var (scale, format) = scaleHandler.FitViews(lengthModel, heightModel, widthModel, orientation, DrawingsOptions.PriorityScale);
 
-            (List<BaseViewBody> baseViews, List<ProjectViewBody>projectViews) = viewsSettler.PlaceViews(lengthModel, heightModel, widthModel, orientation, scale, format);
-           
-            return (baseViews, projectViews, format);
+            (List<BaseViewBody> baseViews, List<ProjectViewBody> projectViews) = viewsSettler.PlaceViews(lengthModel, heightModel, widthModel, orientation, scale, format);
+
+            return new() { BaseViews = baseViews, ProjectViews = projectViews, Format = format };
         }
     }
 

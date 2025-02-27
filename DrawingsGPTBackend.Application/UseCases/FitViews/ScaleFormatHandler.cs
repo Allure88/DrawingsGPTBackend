@@ -29,7 +29,7 @@ namespace DrawingsGPTBackend.Application.UseCases.FitViews
             new(5d)
             ];
 
-        public const double SHEET_FILLING = 0.7;
+        public const double SHEET_FILLING = 0.6;
 
         internal (double scale, Format format) FitViews(double lengthModel, double heightModel, double widthModel, ViewOrientationTypeEnumBody orientation, double priorityScale)
         {
@@ -49,8 +49,11 @@ namespace DrawingsGPTBackend.Application.UseCases.FitViews
             {
                 (int sheetLength, int sheetHeight) = format.GetSheetDimensions();
 
+                int sheetFieldLength = sheetLength - 25;
+                int sheetFieldHeight = sheetHeight - 60;
+
                 //если помещается
-                if (sheetLength > normalWidth * scaleFitted && sheetHeight > normalHeight * scaleFitted)
+                if (sheetFieldLength > normalWidth * scaleFitted && sheetFieldHeight > normalHeight * scaleFitted)
                 {
                     ScaleWr scaleWrFitted = scales.First(s => s.Value.EqualsTo(scaleFitted));
                     int index = scales.IndexOf(scaleWrFitted);
@@ -60,7 +63,7 @@ namespace DrawingsGPTBackend.Application.UseCases.FitViews
                         //пытаемся увеличить масштаб
                         for (int i = index + 1; i < scales.Count; i++)
                         {
-                            if (sheetLength > normalWidth * scales[i].Value && sheetHeight > normalHeight * scales[i].Value)
+                            if (sheetFieldLength > normalWidth * scales[i].Value && sheetFieldHeight > normalHeight * scales[i].Value)
                             {
                                 scaleFitted = scales[i].Value;
                             }
@@ -83,7 +86,7 @@ namespace DrawingsGPTBackend.Application.UseCases.FitViews
                         for (int i = index - 1; i >= 0; i--)
                         {
                             scaleFitted = scales[i].Value;
-                            if (sheetLength > normalWidth * scales[i].Value && sheetHeight > normalHeight * scales[i].Value)
+                            if (sheetFieldLength > normalWidth * scales[i].Value && sheetFieldHeight > normalHeight * scales[i].Value)
                             {
                                 break;
                             }
