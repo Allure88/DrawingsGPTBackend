@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35728.132
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawingsGPTBackend.API", "API\DrawingsGPTBackend.API.csproj", "{FC3B585A-F8C3-4910-8239-D3107C55B45D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawingsGPTBackend.Application", "DrawingsGPTBackend.Application\DrawingsGPTBackend.Application.csproj", "{C651D842-CCA0-4BB3-BDA4-BFE99C8A5B3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawingsGPTBackend.Domain", "DrawingsGPTBackend.Domain\DrawingsGPTBackend.Domain.csproj", "{3E217FFF-9706-4545-AF84-DDF50FB680E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC3B585A-F8C3-4910-8239-D3107C55B45D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3B585A-F8C3-4910-8239-D3107C55B45D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC3B585A-F8C3-4910-8239-D3107C55B45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC3B585A-F8C3-4910-8239-D3107C55B45D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C651D842-CCA0-4BB3-BDA4-BFE99C8A5B3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C651D842-CCA0-4BB3-BDA4-BFE99C8A5B3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C651D842-CCA0-4BB3-BDA4-BFE99C8A5B3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C651D842-CCA0-4BB3-BDA4-BFE99C8A5B3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E217FFF-9706-4545-AF84-DDF50FB680E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E217FFF-9706-4545-AF84-DDF50FB680E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E217FFF-9706-4545-AF84-DDF50FB680E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E217FFF-9706-4545-AF84-DDF50FB680E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
