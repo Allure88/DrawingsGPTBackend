@@ -1,4 +1,4 @@
-﻿using DrawingsGPTBackend.Domain.Bodies;
+﻿using DrawingsGPTBackend.Domain.Bodies.Views;
 
 namespace DrawingsGPTBackend.Application.UseCases.FitViews
 {

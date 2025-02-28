@@ -1,4 +1,4 @@
-﻿namespace DrawingsGPTBackend.Domain.Bodies;
+﻿namespace DrawingsGPTBackend.Domain.Bodies.Views;
 
 public class ViewsResponce
 {

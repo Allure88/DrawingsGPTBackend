@@ -1,5 +1,6 @@
 ﻿using DrawingsGPTBackend.Domain;
-using DrawingsGPTBackend.Domain.Bodies;
+using DrawingsGPTBackend.Domain.Bodies.Geometry2D;
+using DrawingsGPTBackend.Domain.Bodies.Views;
 
 namespace DrawingsGPTBackend.Application.UseCases.FitViews;
 

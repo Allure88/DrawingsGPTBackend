@@ -1,4 +1,4 @@
-﻿namespace DrawingsGPTBackend.Domain.Bodies;
+﻿namespace DrawingsGPTBackend.Domain.Bodies.Geometry2D;
 
 public class Point2Dbody
 {

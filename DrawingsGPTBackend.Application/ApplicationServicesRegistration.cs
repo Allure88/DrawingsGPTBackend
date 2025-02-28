@@ -1,4 +1,5 @@
 ﻿using DrawingsGPTBackend.Application.UseCases.FitViews;
+using DrawingsGPTBackend.Application.UseCases.PlaceDimensions;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DrawingsGPTBackend.Application
@@ -11,6 +12,9 @@ namespace DrawingsGPTBackend.Application
             services.AddTransient<OrientationHandler>();
             services.AddTransient<ScaleFormatHandler>();
             services.AddTransient<ViewsSettler>();
+
+
+            services.AddTransient<DimensionsInteractor>();
             //services.AddAutoMapper(Assembly.GetExecutingAssembly());
             //services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Ping).Assembly));
             //services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));

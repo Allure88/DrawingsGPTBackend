@@ -1,7 +1,6 @@
 ﻿using DrawingsGPTBackend.API.Models.Responces;
 using DrawingsGPTBackend.Application.UseCases.FitViews;
-using DrawingsGPTBackend.Domain;
-using DrawingsGPTBackend.Domain.Bodies;
+using DrawingsGPTBackend.Domain.Bodies.Views;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrawingsGPTBackend.API.Controllers
