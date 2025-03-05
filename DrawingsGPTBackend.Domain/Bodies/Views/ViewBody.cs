@@ -1,18 +1,21 @@
 ﻿using DrawingsGPTBackend.Domain.Bodies.Geometry2D;
 
 namespace DrawingsGPTBackend.Domain.Bodies.Views;
-public class BaseViewBody
+
+public abstract class ViewBody
 {
     public string UniqueName { get; set; } = string.Empty;
     public Point2Dbody CenterPosition { get; set; } = null!;
+}
+
+public class BaseViewBody: ViewBody
+{    
     public double Scale { get; set; }
     public ViewOrientationTypeEnumBody Orientation { get; set; }
 }
 
-public class ProjectViewBody
+public class ProjectViewBody : ViewBody
 {
-    public string UniqueName { get; set; } = string.Empty;
-    public Point2Dbody CenterPosition { get; set; } = null!;
     public BaseViewBody ParentView { get; set; } = null!;
 }
 

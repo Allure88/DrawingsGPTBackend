@@ -2,7 +2,6 @@
 
 public class ViewsResponce
 {
-    public List<BaseViewBody> BaseViews { get; set; }
-    public List<ProjectViewBody> ProjectViews { get; set; }
+    public List<ViewBody> Views { get; set; } = null!;
     public Format Format { get; set; }
 }
