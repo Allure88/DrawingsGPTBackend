@@ -2,6 +2,7 @@
 
 public class Point2Dbody
 {
+    public bool IsStart { get; set; }
     public double X { get; set; }
     public double Y { get; set; }
 }

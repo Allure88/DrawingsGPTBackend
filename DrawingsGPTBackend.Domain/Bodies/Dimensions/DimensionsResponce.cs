@@ -1,5 +1,4 @@
-﻿#nullable enable
-namespace DrawingsGPTBackend.Domain.Bodies.Dimensions
+﻿namespace DrawingsGPTBackend.Domain.Bodies.Dimensions
 {
     public class DimensionsResponce
     {

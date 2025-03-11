@@ -11,7 +11,10 @@ namespace DrawingsGPTBackend.API.Controllers
         public ActionResult<BaseResponse> Post([FromBody] DimensionsRequest request)
         {
 
-            DimensionsResponce viewsResponce = dimensionInteractor.PlaceDimensions(request);
+            DimensionsResponce viewsResponce = dimensionInteractor.PlaceCommonDimensions(request);
+
+
+
 
             BaseResponse baseResponse = new(viewsResponce)
             {

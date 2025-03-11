@@ -1,7 +1,11 @@
 ﻿using DrawingsGPTBackend.Domain.Bodies.Geometry2D;
+using System.Text.Json.Serialization;
 
 namespace DrawingsGPTBackend.Domain.Bodies.Views;
 
+[JsonPolymorphic(TypeDiscriminatorPropertyName = "type")]
+[JsonDerivedType(typeof(BaseViewBody), typeDiscriminator: "BASE_VIEW")]
+[JsonDerivedType(typeof(ProjectViewBody), typeDiscriminator: "PROJECT_VIEW")]
 public abstract class ViewBody
 {
     public string UniqueName { get; set; } = string.Empty;

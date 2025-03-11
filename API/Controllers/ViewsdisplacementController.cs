@@ -11,7 +11,7 @@ namespace DrawingsGPTBackend.API.Controllers
         public ActionResult<BaseResponse> Post([FromBody] ViewsRequest request)
         {
 
-            ViewsResponce viewsResponce = viewsInteractor.FitViews(request.BoundingBox, request.DrawingsOptions, request.IsAssembly);
+            ViewsResponce viewsResponce = viewsInteractor.FitViews(request.BoundingBox, request.DrawingsOptions);
 
             BaseResponse baseResponse = new(viewsResponce)
             {

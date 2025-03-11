@@ -6,7 +6,7 @@ namespace DrawingsGPTBackend.Application.UseCases.FitViews;
 
 public class ViewsSettler
 {
-    internal (List<BaseViewBody>, List<ProjectViewBody>) PlaceViews(double lengthModel, double heightModel, double widthModel, ViewOrientationTypeEnumBody orientation, double scale, Format format)
+    internal List<ViewBody> PlaceViews(double lengthModel, double heightModel, double widthModel, ViewOrientationTypeEnumBody orientation, double scale, Format format)
     {
         GetDrawingViewsDimensions(lengthModel, heightModel, widthModel, orientation, scale,
             out double baseWidth,
@@ -41,7 +41,7 @@ public class ViewsSettler
             ParentView = baseViewBody,
         };
 
-        return ([baseViewBody], [rightSideView, downSideView]);
+        return ([baseViewBody,rightSideView, downSideView]);
     }
 
     private static void GetDrawingViewsDimensions(double lengthModel, double heightModel, double widthModel, ViewOrientationTypeEnumBody orientation, double scale, out double baseWidth, out double baseHeight, out double rightSideWidth, out double downSideHeight)

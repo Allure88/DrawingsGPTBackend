@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DrawingsGPTBackend.Domain
 {
+
+    public enum ViewType { Base, RightSide, DownSide}
+
     public enum Format
     {
         A4 = 297,
@@ -15,6 +18,7 @@ namespace DrawingsGPTBackend.Domain
         A0 = 1189
     }
 
+    public enum PointIntentTypeBody { Start, End, None}
  
 
     public static class EnumParser
@@ -32,5 +36,6 @@ namespace DrawingsGPTBackend.Domain
             };
         }
     }
+
 
 }

@@ -15,6 +15,7 @@ namespace DrawingsGPTBackend.Application
 
 
             services.AddTransient<DimensionsInteractor>();
+            services.AddTransient<CommonDimensionPlacer>();
             //services.AddAutoMapper(Assembly.GetExecutingAssembly());
             //services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Ping).Assembly));
             //services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
