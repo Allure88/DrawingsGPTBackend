@@ -6,7 +6,7 @@ namespace DrawingsGPTBackend.Application.UseCases.FitViews;
 
 public class ViewsSettler
 {
-    internal List<ViewBody> PlaceViews(double lengthModel, double heightModel, double widthModel, ViewOrientationTypeEnumBody orientation, double scale, Format format)
+    internal List<ViewBody> PlaceViews(double lengthModel, double heightModel, double widthModel, ViewOrientationTypeEnumBody orientation, double scale, Format format, int upTrCoordinate)
     {
         GetDrawingViewsDimensions(lengthModel, heightModel, widthModel, orientation, scale,
             out double baseWidth,
@@ -17,7 +17,7 @@ public class ViewsSettler
         var (sheetWidth, sheetHeight) = format.GetSheetDimensions();
 
         (Point2Dbody basePosition, Point2Dbody rightSidePosition, Point2Dbody downSidePosition)
-            = GetCoordinates(baseWidth, baseHeight, rightSideWidth, downSideHeight, sheetWidth, sheetHeight);
+            = GetCoordinates(baseWidth, baseHeight, rightSideWidth, downSideHeight, sheetWidth, sheetHeight, upTrCoordinate);
 
         BaseViewBody baseViewBody = new()
         {
@@ -61,19 +61,19 @@ public class ViewsSettler
             : lengthModel * scale;
     }
 
-    private (Point2Dbody basePosition, Point2Dbody rightSidePosition, Point2Dbody downSidePosition) GetCoordinates(double baseWidth, double baseHeight, double rightSideWidth, double downSideHeight, int sheetWidth, int sheetHeight)
+    private (Point2Dbody basePosition, Point2Dbody rightSidePosition, Point2Dbody downSidePosition) GetCoordinates(double baseWidth, double baseHeight, double rightSideWidth, double downSideHeight, int sheetWidth, int sheetHeight, int upTrCoordinate)
     {
-        sheetWidth -= 25;//коррекция на рамку для ровных зазоров
-        sheetHeight -= 60;
-        double widthGap = (sheetWidth - baseWidth - rightSideWidth) / 3;
+        int sheetWidthSpace = sheetWidth - 25;//коррекция на рамку для ровных зазоров
+        int sheetHeightSpace = sheetHeight - upTrCoordinate - 25;
+        double widthGap = (sheetWidthSpace - baseWidth - rightSideWidth) / 3;
         double baseX = 20 + widthGap + baseWidth / 2;
         double downSideX = baseX;
         double rightSideX = 20 + widthGap * 2 + baseWidth + rightSideWidth / 2;
 
-        double heightGap = (sheetHeight - baseHeight - downSideHeight) / 3;
-        double baseY = sheetHeight + 55 - heightGap - baseHeight / 2;
+        double heightGap = (sheetHeightSpace - baseHeight - downSideHeight) / 3;
+        double baseY = sheetHeight - 25 - heightGap - baseHeight / 2;
         double rightSideY = baseY;
-        double downSideY = sheetHeight + 55  - heightGap * 2 - baseHeight - downSideHeight / 2;
+        double downSideY = baseY - baseHeight / 2 - heightGap - downSideHeight / 2;
 
         Point2Dbody centerPosition = new() { X = baseX, Y = baseY };
         Point2Dbody righSidePosition = new() { X = rightSideX, Y = rightSideY };
@@ -82,3 +82,4 @@ public class ViewsSettler
         return (centerPosition, righSidePosition, downSidePosition);
     }
 }
+ 

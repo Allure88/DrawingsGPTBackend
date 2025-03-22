@@ -31,9 +31,9 @@ namespace DrawingsGPTBackend.Application.UseCases.FitViews
 
         public const double SHEET_FILLING = 0.6;
 
-        internal (double scale, Format format) FitViews(double lengthModel, double heightModel, double widthModel, ViewOrientationTypeEnumBody orientation, double priorityScale)
+        internal (double scale, Format format) FitViews(double lengthModel, double heightModel, double widthModel, ViewOrientationTypeEnumBody orientation, double priorityScale, int upCoordinateMM)
         {
-            Format formatFitted = Format.A4;
+            Format formatFitted = Format.A3;
             double scaleFitted = priorityScale;
 
             double netWidth = lengthModel + widthModel;
@@ -50,7 +50,7 @@ namespace DrawingsGPTBackend.Application.UseCases.FitViews
                 (int sheetLength, int sheetHeight) = format.GetSheetDimensions();
 
                 int sheetFieldLength = sheetLength - 25;
-                int sheetFieldHeight = sheetHeight - 60;
+                int sheetFieldHeight = sheetHeight - upCoordinateMM - 20;
 
                 //если помещается
                 if (sheetFieldLength > normalWidth * scaleFitted && sheetFieldHeight > normalHeight * scaleFitted)
