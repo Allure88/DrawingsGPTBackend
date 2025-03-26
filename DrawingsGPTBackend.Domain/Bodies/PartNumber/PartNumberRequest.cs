@@ -1,7 +1,7 @@
 ﻿namespace DrawingsGPTBackend.Domain.Bodies.PartNumber;
 
-public class PartNumberRequest(NodeDirectRqBody nodeDirectRqBody, PartNumberOptions options)
+public class PartNumberRequest
 {
-    public NodeDirectRqBody NodeDirectRqBody { get; } = nodeDirectRqBody;
-    public PartNumberOptions Options { get; } = options;
+    public NodeDirectRqBody NodeDirectRqBody { get; set; } = new();
+    public PartNumberOptions Options { get; set; } = null!;
 }

@@ -15,9 +15,6 @@ namespace DrawingsGPTBackend.API.Controllers
 
             DimensionsResponce viewsResponce = dimensionInteractor.PlaceCommonDimensions(request);
 
-
-
-
             BaseResponse baseResponse = new(viewsResponce)
             {
                 Success = true,

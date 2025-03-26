@@ -21,7 +21,7 @@ namespace DrawingsGPTBackend.Application.UseCases.FitViews
 
 
 
-            return new() { Views = views, Format = format };
+            return new(views, format, true, "");
         }
     }
 

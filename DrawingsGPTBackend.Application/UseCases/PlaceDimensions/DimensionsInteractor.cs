@@ -25,7 +25,7 @@ public class DimensionsInteractor(CommonDimensionPlacer commonDimensionPlacer)
         result.Add(horizontalProjectCommonDim);
 
 
-        return new() { Dimensions = result };
+        return new(true,"", result);
     }
 
 

@@ -7,7 +7,7 @@ namespace DrawingsGPTBackend.Application.UseCases.MakePartNumbers
         private class AssemblyInfo
         {
             public int Number { get; set; }
-            public List<int> DetailNumbers { get; set; } = [];
+            public List<int> DetailNumbers { get; set; } = [0];
 
             public void AddToDetails(int detailNum)
             {
@@ -60,8 +60,17 @@ namespace DrawingsGPTBackend.Application.UseCases.MakePartNumbers
             return false;
         }
 
-        internal int CreateNewAssemblyAndGetNumber()
+        internal int CreateNewAssemblyAndGetNumber(int? settedNumber)
         {
+            if (settedNumber != null)
+            {
+                if (!Assemblies.Any(a => a.Number == settedNumber.Value))
+                {
+                    Assemblies.Add(new() { Number = settedNumber.Value });
+                }
+                return settedNumber.Value;
+            }
+
             int number = Assemblies[0].Number;
             int count = Assemblies.Count;
 
