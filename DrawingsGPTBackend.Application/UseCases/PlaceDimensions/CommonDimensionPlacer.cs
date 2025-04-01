@@ -7,11 +7,14 @@ namespace DrawingsGPTBackend.Application.UseCases.PlaceDimensions;
 public class CommonDimensionPlacer
 {
 
-    internal DimensionBody PlaceCommonDim(List<Line2DBody> ordLines, Point2Dbody minViewPoint, Point2Dbody maxViewPoint, bool isHorizontDimensionMode, double rightOrTopCoord)
+    internal DimensionBody? PlaceCommonDim(List<Line2DBody> ordLines, Point2Dbody minViewPoint, Point2Dbody maxViewPoint, bool isHorizontDimensionMode, double rightOrTopCoord)
     {
         IntentLineBody startIntent;
         IntentLineBody endIntent;
         Point2Dbody textPoint;
+
+        if(ordLines.Count == 0)
+            return null;
 
         //min 
 

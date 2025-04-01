@@ -12,20 +12,23 @@ public class DimensionsInteractor(CommonDimensionPlacer commonDimensionPlacer)
 
 
 
-        DimensionBody horizontalCommonDim =
+        DimensionBody? horizontalCommonDim =
             commonDimensionPlacer.PlaceCommonDim(baseView.OrdVerticalLines, baseView.LeftPoint, baseView.RightPoint, true, baseView.Top);
-        DimensionBody verticalCommonDim = commonDimensionPlacer.PlaceCommonDim(baseView.OrdHorizontalLines, baseView.BottomPoint, baseView.TopPoint, false, baseView.Right);
+        DimensionBody? verticalCommonDim = commonDimensionPlacer.PlaceCommonDim(baseView.OrdHorizontalLines, baseView.BottomPoint, baseView.TopPoint, false, baseView.Right);
 
 
-        DimensionBody horizontalProjectCommonDim =
+        DimensionBody? horizontalProjectCommonDim =
             commonDimensionPlacer.PlaceCommonDim(rightSideView.OrdVerticalLines, rightSideView.LeftPoint, rightSideView.RightPoint, true, rightSideView.Top);
 
-        result.Add(horizontalCommonDim);
-        result.Add(verticalCommonDim);
-        result.Add(horizontalProjectCommonDim);
+        if (horizontalCommonDim != null)
+            result.Add(horizontalCommonDim);
+        if (verticalCommonDim != null)
+            result.Add(verticalCommonDim);
+        if (horizontalProjectCommonDim != null)
+            result.Add(horizontalProjectCommonDim);
 
 
-        return new(true,"", result);
+        return new(true, "", result);
     }
 
 
